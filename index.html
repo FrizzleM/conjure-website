@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conjure</title>
+<meta name="description" content="Send any file with one short code. Conjure picks the fastest route, puts no limit on file size, and is free to start on iPhone, iPad, Mac, Android, Windows and Linux.">
+<meta name="theme-color" content="#F4F5FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0A0F" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Conjure: send anything with one code">
+<meta property="og:description" content="Fast, direct transfers. No file size limit. Free to start.">
+<meta property="og:image" content="assets/conjure-mark-1024.png">
+<link rel="icon" href="assets/conjure-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/conjure-mark-1024.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ─────────────────────────── Navigation ─────────────────────────── -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Conjure, back to top">
+      <svg class="mark" viewBox="7 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
+      <span>Conjure</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#speed">Speed</a>
+      <a href="#size">File size</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a class="btn btn-sm" href="#download">Download</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ─────────────────────────── Hero ─────────────────────────── -->
+<section class="hero" id="top">
+  <div class="wrap hero-copy">
+    <p class="hero-kicker reveal-load">
+      <svg class="mark" viewBox="7 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
+      Conjure
+    </p>
+    <h1 class="hero-title reveal-load" style="--d:80ms">Send anything.<br><span class="grad">Share one code.</span></h1>
+    <p class="hero-sub reveal-load" style="--d:160ms">
+      Conjure finds the fastest way to move your file, then hands you one short code and a QR.
+      They type it in, and the file arrives.
+    </p>
+    <div class="hero-cta reveal-load" style="--d:240ms">
+      <a class="btn btn-lg" id="hero-download" href="#download">Download free</a>
+      <a class="link-chev" href="#how">See how it works</a>
+    </div>
+    <ul class="hero-pills reveal-load" style="--d:320ms" aria-label="Highlights">
+      <li><a href="#speed">Direct, high-speed transfers</a></li>
+      <li><a href="#size">No file size limit<sup>1</sup></a></li>
+      <li><a href="#pricing">Free to start</a></li>
+    </ul>
+  </div>
+
+  <!-- The product shot: a live send, from the question to "Done". -->
+  <div class="hero-stage">
+    <div class="float float-left" id="float-question" aria-hidden="true">
+      <p class="float-q">Is the recipient online?</p>
+      <div class="float-answers">
+        <span class="answer is-chosen">
+          <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+          Yes
+        </span>
+        <span class="answer">No</span>
+      </div>
+    </div>
+
+    <figure class="phone" id="phone" data-state="done" role="img"
+            aria-label="Conjure on iPhone sending a 3.2 GB video straight to another device. It shows a code, a progress ring, and then Done.">
+      <div class="phone-body">
+        <div class="phone-screen">
+          <div class="ph-status">
+            <span>9:41</span>
+            <span class="ph-island"></span>
+            <span class="ph-icons"><i></i><i></i><i></i></span>
+          </div>
+          <div class="ph-header">
+            <span class="ph-title">Send</span>
+            <span class="ph-avatar"></span>
+          </div>
+          <div class="ph-file">
+            <span class="ph-thumb"></span>
+            <span class="ph-file-text">
+              <b>holiday-video.mp4</b>
+              <span>3.2 GB · Video</span>
+            </span>
+          </div>
+          <div class="ph-ring">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <defs>
+                <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" class="stop-a"/>
+                  <stop offset="1" class="stop-b"/>
+                </linearGradient>
+              </defs>
+              <circle class="ring-track" cx="100" cy="100" r="84"/>
+              <circle class="ring-fill" id="ring-fill" cx="100" cy="100" r="84" pathLength="100"/>
+            </svg>
+            <div class="ring-center">
+              <span class="ring-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+              </span>
+              <span class="ring-pct" id="ring-pct">100%</span>
+              <span class="ring-stage" id="ring-stage">Done</span>
+            </div>
+          </div>
+          <div class="ph-code">
+            <span class="ph-code-label">Your code</span>
+            <span class="ph-code-value">CJ1-0420-04G0-24S2-TXV1</span>
+          </div>
+          <div class="ph-meta">
+            <span id="ph-eta">Straight to the other device</span>
+            <span class="ph-e2e">
+              <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+              End-to-end encrypted
+            </span>
+          </div>
+        </div>
+      </div>
+    </figure>
+
+    <div class="float float-right" id="float-received" aria-hidden="true">
+      <span class="float-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+      </span>
+      <span class="float-text">
+        <b>Received on their PC</b>
+        <span>holiday-video.mp4 · 3.2 GB</span>
+        <span class="ok">
+          <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+          SHA-256 verified
+        </span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── At a glance ─────────────────────────── -->
+<section class="glance" aria-label="At a glance">
+  <div class="wrap glance-grid">
+    <a class="glance-item reveal" href="#speed">
+      <span class="glance-big">1 hop</span>
+      <span class="glance-label">Device to device when they're online. Your file crosses the network once.</span>
+    </a>
+    <a class="glance-item reveal" href="#size" style="--d:90ms">
+      <span class="glance-big glance-inf" aria-label="Unlimited">∞</span>
+      <span class="glance-label">No file size limit.<sup>1</sup> Send the whole film, not a compressed copy.</span>
+    </a>
+    <a class="glance-item reveal" href="#pricing" style="--d:180ms">
+      <span class="glance-big">$0</span>
+      <span class="glance-label">Free to start, on every platform. No account to make.</span>
+    </a>
+  </div>
+</section>
+
+<!-- ─────────────────────────── Speed ─────────────────────────── -->
+<section class="stage-section" id="speed">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow">Speed</p>
+      <h2 class="section-title">Straight there.<br>No detour.</h2>
+      <p class="lede">
+        Most file links make you upload everything, then make them download it all again.
+        When your recipient is online, Conjure connects the two devices directly, so
+        <strong>the file travels once, at the speed of your connection.</strong>
+        On the same Wi&#8209;Fi, <strong>it never touches the internet at all.</strong><sup>2</sup>
+      </p>
+    </header>
+
+    <div class="race reveal" id="race" data-state="done">
+      <div class="race-lane lane-cloud">
+        <div class="lane-head">
+          <span class="lane-name">A typical cloud link</span>
+          <span class="lane-status"><span class="st-run">Uploading…</span><span class="st-wait">Waiting for them to open it…</span><span class="st-down">Downloading…</span><span class="st-done">Arrived</span></span>
+        </div>
+        <div class="lane-track">
+          <span class="node">You</span>
+          <span class="seg"><i class="bar bar-up"></i></span>
+          <span class="node node-cloud">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 9.4 4.3 4.3 0 0 0 7 18z"/></svg>
+            Server
+          </span>
+          <span class="seg"><i class="bar bar-down"></i></span>
+          <span class="node">Them</span>
+        </div>
+      </div>
+
+      <div class="race-lane lane-conjure">
+        <div class="lane-head">
+          <span class="lane-name">
+            <svg class="mark" viewBox="7 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
+            Conjure, direct
+          </span>
+          <span class="lane-status"><span class="st-run">Sending…</span><span class="st-done">Arrived</span></span>
+        </div>
+        <div class="lane-track">
+          <span class="node">You</span>
+          <span class="seg seg-wide"><i class="bar bar-direct"></i></span>
+          <span class="node">Them</span>
+        </div>
+      </div>
+
+      <div class="race-foot">
+        <span>Illustration. Real speed depends on both devices and the network between them.<sup>2</sup></span>
+        <button class="replay" id="race-replay" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>
+          Replay
+        </button>
+      </div>
+    </div>
+
+    <div class="speed-points">
+      <div class="point reveal">
+        <h3>Peer to peer</h3>
+        <p>Live transfers go straight from your device to theirs, end-to-end encrypted. No server holds a copy.</p>
+      </div>
+      <div class="point reveal" style="--d:90ms">
+        <h3>Local when it can be</h3>
+        <p>On the same network, Conjure finds the other device and hands the file across. Nothing is uploaded anywhere.</p>
+      </div>
+      <div class="point reveal" style="--d:180ms">
+        <h3>Picks the route for you</h3>
+        <p>It looks at the file, your connection and which services are answering, then chooses. There's nothing to tune.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── File size ─────────────────────────── -->
+<section class="size" id="size">
+  <div class="size-sticky">
+    <div class="wrap size-inner">
+      <p class="eyebrow">Unlimited file size</p>
+      <div class="size-figure" aria-live="off">
+        <span class="size-num" id="size-num">No limit.</span>
+        <span class="size-caption" id="size-caption">Whatever you've got.</span>
+      </div>
+      <ol class="size-stops" id="size-stops" aria-label="Examples">
+        <li data-num="2.4 MB" data-cap="A quarterly report.">24 MB</li>
+        <li data-num="150 MB" data-cap="A holiday clip.">150 MB</li>
+        <li data-num="3.2 GB" data-cap="A feature film.">3.2 GB</li>
+        <li data-num="48 GB" data-cap="A whole photo library.">48 GB</li>
+        <li data-num="No limit." data-cap="Whatever you've got." class="is-on">No limit</li>
+      </ol>
+      <p class="size-lede">
+        Conjure doesn't cap what you send.<sup>1</sup> Live transfers stream from your device to
+        theirs, so <strong>there's no quota to hit and nothing to shrink first.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── How it works ─────────────────────────── -->
+<section class="how" id="how">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-title">Three steps.<br>One question.</h2>
+    </header>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div class="step-art art-files" aria-hidden="true">
+          <span class="chip c1"><i></i>beach.heic</span>
+          <span class="chip c2"><i></i>itinerary.pdf</span>
+          <span class="chip c3"><i></i>notes.txt</span>
+        </div>
+        <span class="step-n">1</span>
+        <h3>Choose what to send</h3>
+        <p>One file or several. Several go as one code and arrive as the files they were.</p>
+      </li>
+      <li class="step reveal" style="--d:90ms">
+        <div class="step-art art-question" aria-hidden="true">
+          <span class="q-text">Is the recipient online?</span>
+          <span class="q-btn q-yes">Yes</span>
+          <span class="q-btn">No</span>
+        </div>
+        <span class="step-n">2</span>
+        <h3>Answer one question</h3>
+        <p>Online now, or later? That's the whole questionnaire. Conjure works out the rest.</p>
+      </li>
+      <li class="step reveal" style="--d:180ms">
+        <div class="step-art art-share" aria-hidden="true">
+          <svg class="mini-qr" viewBox="-2 -2 33 33"><rect x="-2" y="-2" width="33" height="33" class="qr-bg"/><path class="qr-ink" d="M0 0.5h7m4 0h3m2 0h5m1 0h7m-29 1h1m5 0h1m1 0h3m1 0h2m3 0h4m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h4m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h4m1 0h3m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m5 0h1m1 0h5m3 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-18 1h1m4 0h1m3 0h1m-21 1h1m1 0h1m1 0h1m1 0h1m3 0h1m5 0h1m3 0h1m3 0h1m2 0h1m-28 1h1m2 0h1m3 0h3m1 0h1m1 0h1m2 0h3m1 0h3m1 0h2m1 0h1m-26 1h3m1 0h1m2 0h1m1 0h2m1 0h2m1 0h5m3 0h2m1 0h1m-28 1h1m2 0h2m2 0h1m4 0h2m2 0h6m1 0h2m1 0h1m-28 1h2m1 0h1m2 0h1m1 0h1m5 0h1m3 0h2m4 0h1m1 0h2m-26 1h1m2 0h1m1 0h4m3 0h1m1 0h1m1 0h1m2 0h2m2 0h1m1 0h2m-29 1h1m3 0h3m1 0h2m3 0h1m2 0h2m2 0h4m-23 1h1m1 0h3m2 0h2m1 0h2m3 0h1m1 0h1m1 0h1m3 0h1m1 0h2m-27 1h2m2 0h3m1 0h2m6 0h1m1 0h4m2 0h2m1 0h1m-28 1h1m1 0h2m2 0h2m2 0h3m1 0h2m1 0h1m1 0h1m1 0h2m4 0h1m-29 1h1m2 0h1m2 0h1m2 0h1m1 0h1m2 0h1m1 0h1m1 0h1m5 0h2m1 0h1m-27 1h1m6 0h1m2 0h1m1 0h2m3 0h1m1 0h1m1 0h1m2 0h1m1 0h2m-29 1h1m1 0h1m1 0h1m1 0h3m1 0h1m3 0h4m2 0h6m2 0h1m-21 1h1m1 0h2m2 0h1m3 0h3m3 0h1m2 0h2m-29 1h7m3 0h1m1 0h2m1 0h1m4 0h1m1 0h1m1 0h3m-27 1h1m5 0h1m2 0h1m1 0h1m3 0h1m2 0h3m3 0h2m1 0h2m-29 1h1m1 0h3m1 0h1m1 0h1m3 0h1m2 0h12m-27 1h1m1 0h3m1 0h1m2 0h1m5 0h1m1 0h1m1 0h3m1 0h4m-27 1h1m1 0h3m1 0h1m1 0h2m3 0h2m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m-29 1h1m5 0h1m7 0h2m1 0h2m1 0h2m1 0h1m1 0h4m-29 1h7m1 0h1m1 0h2m2 0h1m2 0h1m6 0h1m1 0h1m1 0h1"/></svg>
+          <span class="mini-code">CJ1-0420-04G0…</span>
+        </div>
+        <span class="step-n">3</span>
+        <h3>Share the code</h3>
+        <p>Read it out, paste it in a chat, or hold up the QR. They type or scan it, and the file arrives.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ─────────────────────────── The code ─────────────────────────── -->
+<section class="code-section" id="code">
+  <div class="wrap code-grid">
+    <div class="code-copy reveal">
+      <p class="eyebrow">The code</p>
+      <h2 class="section-title">Say it. Paste it.<br>Scan it.</h2>
+      <p class="lede">
+        Every transfer comes down to one code, whatever route it took.
+        <strong>Codes are forgiving:</strong> hyphens and capitals don't matter, and an O typed for a 0 still works.
+        <strong>A typo is caught on your device</strong> before anything is downloaded.
+      </p>
+      <p class="fine">Anyone who has the code can get the file, so share it the way you'd share the file itself.</p>
+    </div>
+    <div class="code-card reveal" style="--d:120ms" id="code-card">
+      <svg class="big-qr" viewBox="-2 -2 33 33" role="img" aria-label="QR code for the example code">
+        <rect x="-2" y="-2" width="33" height="33" class="qr-bg"/>
+        <path class="qr-ink" d="M0 0.5h7m4 0h3m2 0h5m1 0h7m-29 1h1m5 0h1m1 0h3m1 0h2m3 0h4m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h2m1 0h2m1 0h4m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h2m2 0h1m3 0h2m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h4m1 0h3m1 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m5 0h1m1 0h5m3 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-18 1h1m4 0h1m3 0h1m-21 1h1m1 0h1m1 0h1m1 0h1m3 0h1m5 0h1m3 0h1m3 0h1m2 0h1m-28 1h1m2 0h1m3 0h3m1 0h1m1 0h1m2 0h3m1 0h3m1 0h2m1 0h1m-26 1h3m1 0h1m2 0h1m1 0h2m1 0h2m1 0h5m3 0h2m1 0h1m-28 1h1m2 0h2m2 0h1m4 0h2m2 0h6m1 0h2m1 0h1m-28 1h2m1 0h1m2 0h1m1 0h1m5 0h1m3 0h2m4 0h1m1 0h2m-26 1h1m2 0h1m1 0h4m3 0h1m1 0h1m1 0h1m2 0h2m2 0h1m1 0h2m-29 1h1m3 0h3m1 0h2m3 0h1m2 0h2m2 0h4m-23 1h1m1 0h3m2 0h2m1 0h2m3 0h1m1 0h1m1 0h1m3 0h1m1 0h2m-27 1h2m2 0h3m1 0h2m6 0h1m1 0h4m2 0h2m1 0h1m-28 1h1m1 0h2m2 0h2m2 0h3m1 0h2m1 0h1m1 0h1m1 0h2m4 0h1m-29 1h1m2 0h1m2 0h1m2 0h1m1 0h1m2 0h1m1 0h1m1 0h1m5 0h2m1 0h1m-27 1h1m6 0h1m2 0h1m1 0h2m3 0h1m1 0h1m1 0h1m2 0h1m1 0h2m-29 1h1m1 0h1m1 0h1m1 0h3m1 0h1m3 0h4m2 0h6m2 0h1m-21 1h1m1 0h2m2 0h1m3 0h3m3 0h1m2 0h2m-29 1h7m3 0h1m1 0h2m1 0h1m4 0h1m1 0h1m1 0h3m-27 1h1m5 0h1m2 0h1m1 0h1m3 0h1m2 0h3m3 0h2m1 0h2m-29 1h1m1 0h3m1 0h1m1 0h1m3 0h1m2 0h12m-27 1h1m1 0h3m1 0h1m2 0h1m5 0h1m1 0h1m1 0h3m1 0h4m-27 1h1m1 0h3m1 0h1m1 0h2m3 0h2m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m-29 1h1m5 0h1m7 0h2m1 0h2m1 0h2m1 0h1m1 0h4m-29 1h7m1 0h1m1 0h2m2 0h1m2 0h1m6 0h1m1 0h1m1 0h1"/>
+      </svg>
+      <p class="code-text" aria-label="CJ1-0420-04G0-24S2-TXV1-EHJQ-4V3F-DWPQ-AW3J-DXQQ-9KJJ"><span>CJ1</span><span>0420</span><span>04G0</span><span>24S2</span><span>TXV1</span><span>EHJQ</span><span>4V3F</span><span>DWPQ</span><span>AW3J</span><span>DXQQ</span><span>9KJJ</span></p>
+      <p class="code-caption">A real code, for a live transfer. It stops working when the transfer ends.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── Features ─────────────────────────── -->
+<section class="features" id="features">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow">Everything else</p>
+      <h2 class="section-title">Small app.<br>Careful details.</h2>
+    </header>
+
+    <div class="bento">
+      <article class="tile tile-private reveal">
+        <div class="tile-copy">
+          <h3>Private when you ask.</h3>
+          <p>Turn on Private and Conjure encrypts the file on your device before it leaves. The service that holds it sees scrambled bytes and a meaningless name. The key travels inside the code.</p>
+        </div>
+        <div class="cipher" aria-hidden="true">
+          <div class="cipher-row">
+            <span class="cipher-label">You send</span>
+            <span class="cipher-val plain">quarterly-report.pdf</span>
+          </div>
+          <div class="cipher-row">
+            <span class="cipher-label">The host sees</span>
+            <span class="cipher-val scramble" id="scramble">x7Qf-9aKe2m0Lr5VzT8w</span>
+          </div>
+          <div class="cipher-row">
+            <span class="cipher-label">They get</span>
+            <span class="cipher-val plain">quarterly-report.pdf</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tile reveal" style="--d:90ms">
+        <span class="tile-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 12h5.5l4.5-6h8M8.5 12l4.5 6h8M3 12h18"/><path d="m18 3 3 3-3 3M18 9l3 3-3 3M18 15l3 3-3 3"/></svg>
+        </span>
+        <h3>Three routes, chosen for you.</h3>
+        <p>Direct over the internet, across your local network, or stored for four days for someone who isn't online yet.</p>
+      </article>
+
+      <article class="tile reveal">
+        <span class="tile-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6"/></svg>
+        </span>
+        <h3>Checked on arrival.</h3>
+        <p>Downloads are verified with SHA&#8209;256 before they're saved. A broken copy never lands in your folder.</p>
+      </article>
+
+      <article class="tile reveal" style="--d:90ms">
+        <span class="tile-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="4" y="8" width="13" height="12" rx="2.5"/><path d="M8 5h9.5A2.5 2.5 0 0 1 20 7.5V16"/></svg>
+        </span>
+        <h3>Several files, one code.</h3>
+        <p>Pick a handful and they travel together. The recipient never has to unzip anything.</p>
+      </article>
+
+      <article class="tile reveal" style="--d:180ms">
+        <span class="tile-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/><path d="M3 3l18 18"/></svg>
+        </span>
+        <h3>No account.</h3>
+        <p>Nothing to sign up for and nothing to sign in to. Open the app and send.</p>
+      </article>
+
+      <article class="tile tile-term reveal">
+        <div class="tile-copy">
+          <h3>At home in the terminal.</h3>
+          <p>The same engine ships as <code>cj</code>. Ask it why it chose a route with <code>cj explain</code>.</p>
+        </div>
+        <pre class="term" aria-label="Terminal example"><span class="t-prompt">$</span> cj send notes.txt --private --qr
+<span class="t-code">CJ1-040G-2300-19WQ-8SB7-71J2-WRK9</span>
+
+  <span class="t-key">method</span>       buzzheavier
+  <span class="t-key">encryption</span>   age, the key is in the code
+  <span class="t-key">retention</span>    4 days after upload</pre>
+      </article>
+
+      <article class="tile reveal" style="--d:90ms">
+        <span class="tile-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 15V3m0 0L8 7m4-4 4 4"/><path d="M7 10H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-1"/></svg>
+        </span>
+        <h3>Right where you share.</h3>
+        <p>Send from the Share menu on iPhone and iPad, or from the tray on Windows and Linux.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── Pricing ─────────────────────────── -->
+<section class="pricing" id="pricing">
+  <div class="wrap pricing-grid">
+    <div class="pricing-copy reveal">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="section-title">Starts at free.</h2>
+      <p class="lede">
+        Everything on this page is in the free version, on every platform.
+        <strong>No trial clock, no card, and no account to make.</strong>
+      </p>
+    </div>
+
+    <div class="price-card reveal" style="--d:120ms">
+      <div class="price-top">
+        <span class="price-plan">Conjure Free</span>
+        <span class="price-amount"><span class="cur">$</span>0</span>
+        <span class="price-note">No card needed</span>
+      </div>
+      <ul class="price-list">
+        <li><span>No file size limit<sup>1</sup></span></li>
+        <li><span>Direct, device-to-device transfers</span></li>
+        <li><span>Local network transfers, nothing uploaded</span></li>
+        <li><span>Private sends, encrypted on your device</span></li>
+        <li><span>Codes and QR codes for every transfer</span></li>
+        <li><span>iPhone, iPad, Mac, Android, Windows, Linux and the command line</span></li>
+      </ul>
+      <a class="btn btn-lg btn-block" href="#download">Download free</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── Download ─────────────────────────── -->
+<section class="download" id="download">
+  <div class="wrap">
+    <header class="section-head center reveal">
+      <svg class="download-mark" id="download-mark" viewBox="7 0 120 120" aria-hidden="true">
+        <path class="dm-c" pathLength="100" d="M88.284 31.716A40 40 0 1 0 88.284 88.284"/>
+        <path class="dm-s1" d="M101 47Q102.56 58.44 114 60Q102.56 61.56 101 73Q99.44 61.56 88 60Q99.44 58.44 101 47Z"/>
+        <path class="dm-s2" d="M114 30Q114.72 35.28 120 36Q114.72 36.72 114 42Q113.28 36.72 108 36Q113.28 35.28 114 30Z"/>
+      </svg>
+      <h2 class="section-title">Get Conjure.</h2>
+      <p class="lede">Free on every device you use. Send from one, receive on any other.</p>
+    </header>
+
+    <div class="platforms">
+      <article class="platform reveal" data-platform="ios">
+        <span class="platform-badge">Your device</span>
+        <svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2" width="11" height="20" rx="2.8"/><path d="M10.5 5h3"/></svg>
+        <h3>iPhone &amp; iPad</h3>
+        <p class="req">iOS 17 or later</p>
+        <div class="platform-actions"></div>
+      </article>
+
+      <article class="platform reveal" data-platform="mac" style="--d:60ms">
+        <span class="platform-badge">Your device</span>
+        <svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4" width="17" height="12" rx="1.8"/><path d="M1.5 19.5h21"/></svg>
+        <h3>Mac</h3>
+        <p class="req">macOS 14 Sonoma or later</p>
+        <div class="platform-actions"></div>
+      </article>
+
+      <article class="platform reveal" data-platform="android" style="--d:120ms">
+        <span class="platform-badge">Your device</span>
+        <svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 17a7.5 7.5 0 0 1 15 0z"/><path d="M8 10.5 6.3 7.8M16 10.5l1.7-2.7"/><circle cx="9.3" cy="13.8" r=".6"/><circle cx="14.7" cy="13.8" r=".6"/></svg>
+        <h3>Android</h3>
+        <p class="req">Android 8.0 or later</p>
+        <div class="platform-actions"></div>
+      </article>
+
+      <article class="platform reveal" data-platform="windows">
+        <span class="platform-badge">Your device</span>
+        <svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="3.5" width="19" height="13" rx="2"/><path d="M8.5 20.5h7M12 16.5v4"/></svg>
+        <h3>Windows</h3>
+        <p class="req">Windows 10 or later, 64-bit</p>
+        <div class="platform-actions"></div>
+      </article>
+
+      <article class="platform reveal" data-platform="linux" style="--d:60ms">
+        <span class="platform-badge">Your device</span>
+        <svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 3.5 7v10l8.5 4.5 8.5-4.5V7z"/><path d="M3.5 7 12 11.5 20.5 7M12 11.5v10"/></svg>
+        <h3>Linux</h3>
+        <p class="req">64-bit (x86_64)</p>
+        <div class="platform-actions"></div>
+      </article>
+
+      <article class="platform reveal" data-platform="cli" style="--d:120ms">
+        <span class="platform-badge">Your device</span>
+        <svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="m6.5 9 3 3-3 3M12 15h5.5"/></svg>
+        <h3>Command line</h3>
+        <p class="req">macOS, Windows and Linux</p>
+        <div class="platform-actions"></div>
+      </article>
+    </div>
+
+    <p class="release-line" id="release-line" hidden></p>
+  </div>
+</section>
+
+</main>
+
+<!-- ─────────────────────────── Footer ─────────────────────────── -->
+<footer class="footer">
+  <div class="wrap">
+    <ol class="footnotes">
+      <li id="fn-1">Live and local-network transfers have no size limit. Files sent for later are held for 4 days by a free third-party host that publishes no size limit.</li>
+      <li id="fn-2">Speed depends on both devices and the networks between them. Local transfers need both devices on the same network; direct transfers need both apps open at once. The comparison above is an illustration, not a measurement.</li>
+      <li>Conjure relies on free third-party services that can change or go away. It's a way to hand someone a file, not a place to keep one, so keep your own copy of anything that matters.</li>
+    </ol>
+    <div class="footer-bar">
+      <a class="brand" href="#top">
+        <svg class="mark" viewBox="7 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
+        <span>Conjure</span>
+      </a>
+      <nav class="footer-links" aria-label="Legal">
+        <a href="https://frizzlem.github.io/conjure-privacy/">Privacy Policy</a>
+        <a href="https://frizzlem.github.io/conjure-privacy/terms/">Terms of Use</a>
+      </nav>
+      <p class="footer-legal">Licensed under MIT or Apache-2.0.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- The mark from docs/icon/conjure-mark.svg: a C with two sparkles. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="7 0 120 120">
+      <path class="mark-c" d="M88.284 31.716A40 40 0 1 0 88.284 88.284" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
+      <path class="mark-s1" d="M101 47Q102.56 58.44 114 60Q102.56 61.56 101 73Q99.44 61.56 88 60Q99.44 58.44 101 47Z" fill="currentColor"/>
+      <path class="mark-s2" d="M114 30Q114.72 35.28 120 36Q114.72 36.72 114 42Q113.28 36.72 108 36Q113.28 35.28 114 30Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<script src="downloads.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
