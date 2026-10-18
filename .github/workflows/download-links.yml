@@ -1,0 +1,76 @@
+name: Download links
+
+# Points the site's download buttons at the newest release on this repository,
+# and has Pages publish the change.
+#
+# It takes whichever release GitHub marks Latest: never a draft or a
+# pre-release, and not one published with "Set as the latest release" unticked.
+# The `asset` patterns in downloads.js say which file each button takes, and
+# .github/scripts/download-links.mjs rewrites those URLs and nothing else.
+#
+# Run it by hand from the Actions tab after adding a file to a release that is
+# already out, or after deleting one.
+on:
+  release:
+    # A release published, or a pre-release turned into a full release.
+    # `published` would also fire for pre-releases, which the site skips.
+    types: [released]
+  workflow_dispatch:
+
+permissions:
+  contents: write # commit downloads.js
+  pages: write # ask Pages to rebuild
+
+concurrency:
+  group: download-links
+  cancel-in-progress: false
+
+jobs:
+  links:
+    name: Point the links at the latest release
+    # This repository's releases, not a fork's.
+    if: github.repository == 'FrizzleM/conjure-website'
+    runs-on: ubuntu-latest
+    steps:
+      # A release event checks out the release's tag, which can be behind
+      # main, and the commit has to go on top of main.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Read the latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/releases/latest" > "$RUNNER_TEMP/release.json"
+          jq -r '"\(.tag_name), \(.assets | length) files"' "$RUNNER_TEMP/release.json"
+
+      - name: Rewrite downloads.js
+        run: node .github/scripts/download-links.mjs "$RUNNER_TEMP/release.json" downloads.js
+
+      - name: Commit it
+        id: commit
+        env:
+          BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          if git diff --quiet -- downloads.js; then
+            echo "downloads.js already points at this release."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git diff -- downloads.js
+          tag="$(jq -r .tag_name "$RUNNER_TEMP/release.json")"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --quiet -m "Point the download links at $tag" -- downloads.js
+          git push origin "HEAD:$BRANCH"
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      # Pages does not build commits pushed with this workflow's own token, so
+      # the push above changes main but not the site until Pages is asked. A
+      # run by hand always asks, which also mends a run that stopped here.
+      - name: Rebuild the site
+        if: steps.commit.outputs.pushed == 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --jq '"Pages build \(.status)"'
